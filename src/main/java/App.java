@@ -9,8 +9,9 @@ public class App {
         camelMain.addRouteBuilder(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("file:runtime-data")
-                        .log("${body}");
+                from("file:runtime-data/in")
+                        .log("${body}")
+                        .to("file:runtime-data/out");
             }
         });
 
